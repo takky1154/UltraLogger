@@ -126,7 +126,7 @@ public class FileLogger implements Listener{
 		if(plugin.isEventForbidden(event.getPlayer(), event.getClass()))
 			return;
 		Block i = event.getBlock();
-		file.log(printPlayer(event.getPlayer())+" destroyed "+new ItemStack(i.getTypeId()).toString()+" in "+printLoc(i.getLocation()));
+		file.log(printPlayer(event.getPlayer())+" destroyed "+new ItemStack(i.getType()).toString()+" in "+printLoc(i.getLocation()));
 	}
 	
 	@EventHandler (priority = EventPriority.MONITOR)
@@ -134,35 +134,35 @@ public class FileLogger implements Listener{
 		if(!EventManager.isEnabled(event.getClass(), events))
 			return;
 		Block i = event.getBlock();
-		file.log(new ItemStack(i.getTypeId()).toString()+" has burnt in "+printLoc(i.getLocation()));
+		file.log(new ItemStack(i.getType()).toString()+" has burnt in "+printLoc(i.getLocation()));
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void block_dispense(BlockDispenseEvent event){
 		if(!EventManager.isEnabled(event.getClass(), events))
 			return;
 		Block i = event.getBlock();
-		file.log(new ItemStack(i.getTypeId()).toString()+" was dispensed in "+printLoc(i.getLocation()));
+		file.log(new ItemStack(i.getType()).toString()+" was dispensed in "+printLoc(i.getLocation()));
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void block_fade(BlockFadeEvent event){
 		if(!EventManager.isEnabled(event.getClass(), events))
 			return;
 		Block i = event.getBlock();
-		file.log(new ItemStack(i.getTypeId()).toString()+" has fade in "+printLoc(i.getLocation()));
+		file.log(new ItemStack(i.getType()).toString()+" has fade in "+printLoc(i.getLocation()));
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void block_form(BlockFormEvent event){
 		if(!EventManager.isEnabled(event.getClass(), events))
 			return;
 		Block i = event.getBlock();
-		file.log(new ItemStack(i.getTypeId()).toString()+" was formed in "+printLoc(i.getLocation()));
+		file.log(new ItemStack(i.getType()).toString()+" was formed in "+printLoc(i.getLocation()));
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void block_grow(BlockGrowEvent event){
 		if(!EventManager.isEnabled(event.getClass(), events))
 			return;
 		Block i = event.getBlock();
-		file.log(new ItemStack(i.getTypeId()).toString()+" data "+i.getData()+" grown to data "+event.getNewState().getRawData()+" in "+printLoc(i.getLocation()));
+		file.log(new ItemStack(i.getType()).toString()+" data "+i.getData()+" grown to data "+event.getNewState().getRawData()+" in "+printLoc(i.getLocation()));
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void block_ignite(BlockIgniteEvent event){
@@ -181,14 +181,14 @@ public class FileLogger implements Listener{
 		if(plugin.isEventForbidden(event.getPlayer(), event.getClass()))
 			return;
 		Block i = event.getBlock();
-		file.log(printPlayer(event.getPlayer())+" placed "+new ItemStack(i.getTypeId()).toString()+" in "+printLoc(i.getLocation()));
+		file.log(printPlayer(event.getPlayer())+" placed "+new ItemStack(i.getType()).toString()+" in "+printLoc(i.getLocation()));
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void block_spread(BlockSpreadEvent event){
 		if(!EventManager.isEnabled(event.getClass(), events))
 			return;
 		Block i = event.getBlock();
-		file.log(new ItemStack(i.getTypeId()).toString()+" data "+i.getData()+" spread to data "+event.getNewState().getRawData()+" in "+printLoc(i.getLocation()));
+		file.log(new ItemStack(i.getType()).toString()+" data "+i.getData()+" spread to data "+event.getNewState().getRawData()+" in "+printLoc(i.getLocation()));
 	}
 	
 	@EventHandler (priority = EventPriority.MONITOR)
@@ -196,7 +196,7 @@ public class FileLogger implements Listener{
 		if(!EventManager.isEnabled(event.getClass(), events))
 			return;
 		Block i = event.getBlock();
-		file.log(new ItemStack(i.getTypeId()).toString()+" was formed in "+printLoc(i.getLocation())+" by "+event.getEntity().toString());
+		file.log(new ItemStack(i.getType()).toString()+" was formed in "+printLoc(i.getLocation())+" by "+event.getEntity().toString());
 	}
 	
 	@EventHandler (priority = EventPriority.MONITOR)
@@ -208,7 +208,7 @@ public class FileLogger implements Listener{
 		Block i = event.getBlock();
 		Player p = event.getPlayer();
 		if(p==null)
-			file.log(new ItemStack(i.getTypeId()).toString()+" was changed in "+printLoc(i.getLocation()));
+			file.log(new ItemStack(i.getType()).toString()+" was changed in "+printLoc(i.getLocation()));
 		else
 			file.log(printPlayer(p)+" has edited a sign in "+printLoc(i.getLocation()));
 	}
@@ -390,7 +390,7 @@ public class FileLogger implements Listener{
 		Block i =event.getBlock();
 		if(i==null)
 			return;
-		file.log("["+i.getWorld().getName()+"] "+event.getEntity().toString()+" interacted with "+new ItemStack(i.getTypeId())+" in "+printLoc(i.getLocation()));
+		file.log("["+i.getWorld().getName()+"] "+event.getEntity().toString()+" interacted with "+new ItemStack(i.getType())+" in "+printLoc(i.getLocation()));
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void entity_enter_portal(EntityPortalEnterEvent event){

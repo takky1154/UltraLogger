@@ -242,11 +242,11 @@ public class PlayerLogger implements Listener,Runnable{
 		String name = e.getName()+" ("+e.getAddress().getHostAddress()+")";
 		if(e.getKickMessage()!=null&&e.getKickMessage()!=""){
 
-            manager.query("INSERT INTO `"+manager.getprefix()+"_player`(`time`, `event`,`From/Cause/Amount/Message`, `entity_name`) VALUES (NOW(), "+"'"+e.getLoginResult().name()+"' ,'" +
+            manager.query("INSERT INTO `"+manager.getprefix()+"_player`(`time`, `event`,`From/Cause/Amount/Message`, `entity_name`) VALUES (NOW(), "+"'"+e.getResult().name()+"' ,'" +
                     manager.StringCheck(e.getKickMessage())+"','"+name+"'"+")");
 		}
 		else{
-            manager.query("INSERT INTO `"+manager.getprefix()+"_player`(`time`, `event`, `entity_name`) VALUES (NOW(), "+"'"+e.getLoginResult().name()+"' ,'" +
+            manager.query("INSERT INTO `"+manager.getprefix()+"_player`(`time`, `event`, `entity_name`) VALUES (NOW(), "+"'"+e.getResult().name()+"' ,'" +
                     name+"')");
 		}
 	}

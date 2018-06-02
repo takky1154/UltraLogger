@@ -60,7 +60,7 @@ public class EntityLogger implements Listener,Runnable{
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void onEvent4(EntityDamageEvent e){
 		Entity i =e.getEntity();
-		int dmg = e.getDamage();
+		double dmg = e.getDamage();
         manager.query("INSERT INTO `"+manager.getprefix()+"_entity`(`time`,`world`,`entityname`,`event`,`amount`,`reason`,`x`,`y`,`z`) VALUES (NOW(),'"+i.getWorld().getName()+"','"+i.toString()+"','Damage(HalfHearth)',"+ dmg +",'"+e.getCause().name()+"',"+toSQLquery(i.getLocation())+")");
 	}
 	@EventHandler (priority = EventPriority.MONITOR)
